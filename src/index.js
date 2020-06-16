@@ -16,22 +16,10 @@ function fetchWord(e) {
     const word = document.querySelector("#search-term").value;
     fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`)
       .then(response => response.json())
-        .then(json => console.log(json));
-    // .then((response) => {return response.json(); })
-    // .then((resp => {
-    //     // Here we get the data array from the response object
-    //     let dataArray = resp.data
-    //     console.log(dataArray)
-        // We pass the array to showGiphs function
-        // showWord(dataArray);
-    }
-//     .catch(err => console.log(err)); // We use catch method for Error handling
-
-
-
-// function showWord(dataArray) {
-//   const results = document.getElementById('word-display');
-//   let output = '<div class="container">';
-//   document.querySelector('.results').innerHTML = output;
-// }
-
+      .then(data => {
+        let output = `<h2>${word}</h2>`;
+        output += '<p>'
+        output += `${data[0].hwi.hw} ${data[0].date} ${data[0].fl} ${data[0].shortdef}`
+        output += '</p>'
+        document.getElementById("word-display").innerHTML = output;
+    })}

@@ -1,6 +1,6 @@
 // 9914489d-b5db-4c45-b32f-278fe3a89f71
-const search = document.getElementById('search-form');
-search.addEventListener("submit", fetchWord);
+const searchForm = document.querySelector('#search-form');
+searchForm.addEventListener("submit", fetchWord);
 const definition = document.getElementById('word-display');
 
 // search.addEventListener('input', () => searchWords(search.value))
@@ -13,15 +13,15 @@ const definition = document.getElementById('word-display');
 
 function fetchWord(e) {
     e.preventDefault();
-    const word = search.value;
+    const word = document.querySelector("#search-term").value;
     fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`)
       .then(response => response.json())
-        .then(data => console.log(data));
+        .then(json => console.log(json));
     // .then((response) => {return response.json(); })
     // .then((resp => {
-        // Here we get the data array from the response object
-        // let dataArray = resp.data
-        // console.log(dataArray)
+    //     // Here we get the data array from the response object
+    //     let dataArray = resp.data
+    //     console.log(dataArray)
         // We pass the array to showGiphs function
         // showWord(dataArray);
     }

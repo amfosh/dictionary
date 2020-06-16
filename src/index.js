@@ -1,15 +1,37 @@
 // 9914489d-b5db-4c45-b32f-278fe3a89f71
-let word = "cat"
+const search = document.getElementById('search-form');
+search.addEventListener("submit", fetchWord);
+const definition = document.getElementById('word-display');
+
+// search.addEventListener('input', () => searchWords(search.value))
+// const word = "cat" 
 // document.getElementById("search-term").value
-url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/`
+
+// let url = `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`
 
 //function that defines word as search term
 
-fetch(url + `${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`)
-  .then(response => response.json())
-  .then(data => console.log(data));
+function fetchWord(e) {
+    e.preventDefault();
+    const word = search.value;
+    fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`)
+      .then(response => response.json())
+        .then(data => console.log(data));
+    // .then((response) => {return response.json(); })
+    // .then((resp => {
+        // Here we get the data array from the response object
+        // let dataArray = resp.data
+        // console.log(dataArray)
+        // We pass the array to showGiphs function
+        // showWord(dataArray);
+    }
+//     .catch(err => console.log(err)); // We use catch method for Error handling
 
-//fetch adds word to document under word-container
 
-//changes
+
+// function showWord(dataArray) {
+//   const results = document.getElementById('word-display');
+//   let output = '<div class="container">';
+//   document.querySelector('.results').innerHTML = output;
+// }
 

@@ -17,9 +17,23 @@ function fetchWord(e) {
     fetch(`https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=9914489d-b5db-4c45-b32f-278fe3a89f71`)
       .then(response => response.json())
       .then(data => {
+          console.log(data)
         let output = `<h2>${word}</h2>`;
         output += '<p>'
-        output += `${data[0].hwi.hw} ${data[0].date} ${data[0].fl} ${data[0].shortdef}`
+        output += `${data[0].hwi.prs[0].mw}`
         output += '</p>'
+        output += '<p>'
+        output += `${data[0].fl}`
+        output += '</p>'
+        output += '<h3>definitions:</h3>'
+        output += '<ol>'
+        output += `${data[0].shortdef[0]}`
+        output += '</ol>'
+        output += '<ol>'
+        output += data[0].shortdef[1] ? `${data[0].shortdef[1]}` : ``
+        output += '</ol>'
+        output += '<ol>'
+        output += data[0].shortdef[2] ? `${data[0].shortdef[2]}` : ``
+        output += '</ol>'
         document.getElementById("word-display").innerHTML = output;
     })}

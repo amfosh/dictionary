@@ -6,10 +6,52 @@ body {
     font-size: 1.3em;
     max-width: 500px;
     margin: 0 auto;
+    background-color: #FFA591;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .word-container {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#search-term {   
+    font-family: 'Archivo Narrow';
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    line-height: 1.6em;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#search-term:focus {   
+    outline: none;
+}
+
+#search-term:hover {   
+    cursor: crosshair;
+}
+
+#submit {   
+    font-family: 'Archivo Narrow';
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    line-height: 1.6em;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+#submit:focus {   
+    outline: none;
+}
+
+#submit:hover {   
+    cursor: crosshair;
 }
